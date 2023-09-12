@@ -1,4 +1,6 @@
-﻿class Player
+﻿using System.Globalization;
+
+class Player
 {
     public int CurrentHitPoints = 15;
 
@@ -6,18 +8,24 @@
     
     public Location Location;
 
-    public int CurrentWeapon;
+    public Weapon CurrentWeapon;
 
     public int MaximumHitPoints = 15; 
 
     public string Name;
 
-    public Player(string id, int Weapon, int MaxHP, Location location )
+    public Player(Location location )
     {
-        this.Name = id;
-        this.CurrentWeapon = Weapon;
-        this.MaximumHitPoints = MaxHP;
         this.Location = location;
+    }
+    public bool TryMoveTo(Location newLocation)
+    {
+        if (newLocation != null)
+        {
+            Location = newLocation;
+            return true;
+        }
+        return false;
     }
 
     public void Potion()
