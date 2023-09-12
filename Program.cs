@@ -2,7 +2,7 @@
 {
     public static void Main()
     {
-        Player player = new Player(World.Locations[1]);
+        Player player = new Player(World.Locations[0]);
         Console.WriteLine("Current location: " + player.Location.Name);
         Console.WriteLine(player.Location.Compass());
 
