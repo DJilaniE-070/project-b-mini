@@ -2,6 +2,9 @@ public class Program
 {
     public static void Main()
     {
+        Quest quest_1 = World.QuestByID(1);
+        Quest quest_2 = World.QuestByID(2);
+
         //hier moet de intro van game story home
         Player player = new Player(World.Locations[0]);
         Console.WriteLine("Current location: " + player.Location.Name);
@@ -13,6 +16,8 @@ public class Program
         {
             Console.Write("Enter a direction (N/E/S/W) or type 'quit' to exit: ");
             string input = Console.ReadLine();
+            string direction = input.ToUpper();
+
 
             if (!string.IsNullOrEmpty(input))
             {
@@ -21,10 +26,20 @@ public class Program
                     Console.WriteLine("You left the game.");
                     break;
                 }
+                //de statement om te voorkomen dat als je quest 1 and quest 2 niet af heb dan je niet verder komt bij de Guard Post
+                if (player.Location.Name == "Guard post" && direction == "E")
+                {
+                    if (quest_1.Cleared == false && quest_2.Cleared == false)
+                    {
+                        Console.WriteLine("You cannot go to the Bridge until you have completed both Quest 1 and Quest 2.");
+                        continue; //skip verder en begin loop opnieuw. als je steeds op e typt
+                    }
+                 }
+
                 else if (input.Length == 1)
                 {
-                    char direction = input[0];
-                    bool moved = player.TryMoveTo(player.Location.GetLocationAt(direction.ToString()));
+
+                    bool moved = player.TryMoveTo(player.Location.GetLocationAt(direction));
 
                     if (!moved)
                     {
@@ -50,7 +65,7 @@ public class Program
                             break;
                         case "Alchemist's garden":
                             Console.WriteLine("write story A G");
-                            // hier de minigames voor quest in A G
+                            // hier de minigames voor quest in A G                            
                             while (true)
                             {
                                 break;
@@ -63,16 +78,18 @@ public class Program
                             Console.WriteLine("write story F F");
                             break;
                         case "Guard post":
-                            Console.WriteLine("write story G P");
-                            break;
+
                         case "Bridge":
+                           
                             Console.WriteLine("write story B");
                             break;
+
                         case "Forest":
+                            //hier if quest 1 quest 2 and quest 3 is true then wongame = true
                             Console.WriteLine("Congratulations! You have won the game!");
                             wonGame = true;
                             break;
-                        }
+                            }
                     }
                 }
                 else
