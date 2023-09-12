@@ -9,7 +9,7 @@
     public Quest QuestAvailableHere;
     public Monster MonsterLivingHere;
 
-    public Location(int id, string name, string description, int change1, int change2)
+    public Location(int id, string name, string description,string change, string change2 )
     {
         ID = id;
         Name = name;
@@ -18,6 +18,7 @@
 
     public string Compass()
     {
+        //Settings > Debug > Console: Collapse Identical Lines
         string s = "From here you can go:\n";
         if (LocationToNorth != null)
         {

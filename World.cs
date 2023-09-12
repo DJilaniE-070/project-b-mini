@@ -1,4 +1,4 @@
-public static class World
+﻿public static class World
 {
 
     public static readonly List<Weapon> Weapons = new List<Weapon>();
@@ -162,7 +162,7 @@ public static class World
                 return location;
             }
         }
-
+    
         return null;
     }
 
@@ -178,8 +178,6 @@ public static class World
 
         return null;
     }
-
-
 
     public static Monster MonsterByID(int id)
     {
