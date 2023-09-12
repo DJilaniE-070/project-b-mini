@@ -6,14 +6,21 @@
         Console.WriteLine("Current location: " + player.Location.Name);
         Console.WriteLine(player.Location.Compass());
 
+        bool wonGame = false;
+
         while (player.Location.Name != "Goal")
         {
-            Console.Write("Enter a direction (N/E/S/W): ");
+            Console.Write("Enter a direction (N/E/S/W) or type 'quit' to exit: ");
             string input = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(input))
             {
-                if (input.Length == 1)
+                if (input.ToLower() == "quit")
+                {
+                    Console.WriteLine("You left the game.");
+                    break;
+                }
+                else if (input.Length == 1)
                 {
                     char direction = input[0];
                     bool moved = player.TryMoveTo(player.Location.GetLocationAt(direction.ToString()));
@@ -30,7 +37,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Enter a single direction (N/E/S/W).");
+                    Console.WriteLine("Invalid input. Enter a single direction (N/E/S/W) or 'quit' to exit.");
                 }
             }
             else
@@ -39,6 +46,15 @@
             }
         }
 
-        Console.WriteLine("You have arrived at the goal!");
+        if (player.Location.Name == "Goal")
+        {
+            Console.WriteLine("Congratulations! You have won the game!");
+            wonGame = true;
+        }
+
+        if (!wonGame)
+        {
+            Console.WriteLine("Game over. You did not reach the goal.");
+        }
     }
 }
