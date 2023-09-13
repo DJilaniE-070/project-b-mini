@@ -84,6 +84,16 @@
         Program program = new Program();
         Player player = new Player(World.Locations[0]);
         //hier moet de intro van game story home
+Console.WriteLine("          _______  _______  _______ ");
+        Console.WriteLine("|\\     /|(  ____ )(  ____ )(  ___  )");
+        Console.WriteLine("| )   ( || (    \\/| (    )|| (   ) |");
+        Console.WriteLine("| (___) || (__    | (____)|| |   | |");
+        Console.WriteLine("|  ___  ||  __)   |     __)| |   | |");
+        Console.WriteLine("| (   ) || (      | (\\ (   | |   | |");
+        Console.WriteLine("| )   ( || (____/\\| ) \\ \\__| (___) |");
+        Console.WriteLine("|/     \\|(_______/|/   \\__/(_______)");
+
+        Console.WriteLine("\nYour town is being infected by a disease that comes from spiders\ngo and kill those spiders if you want to impress your crush and become the towns hero. \n");
         Console.WriteLine("Current location: " + player.Location.Name);
         Console.WriteLine(player.Location.Compass());
 
@@ -91,7 +101,7 @@
 
         while (wonGame == false)
         {
-            Console.Write("Enter a direction (N/E/S/W) or type 'quit' to exit: ");
+            Console.Write("\nEnter a direction (N/E/S/W) or type 'quit' to exit: ");
             string input = Console.ReadLine();
             string direction = input.ToUpper();
 
@@ -128,7 +138,7 @@
                         switch (player.Location.Name)
                         {
                         case "Home":
-                            Console.WriteLine("Your town is being infected by a disease that comes from spiders\ngo and kill those spiders.You want to impress your crush and become the towns hero");
+                            Console.WriteLine("You are home");
                             break;
                         case "Town square":
                             Console.WriteLine("The Town is infested with spiders everyone left the town ");
