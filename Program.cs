@@ -62,7 +62,7 @@
             }
             else if(choose_weapon.ToUpper() == "N")
             {
-            Console.WriteLine("You've keep your old trusty rusty sword\n");
+            Console.WriteLine("You've kept your old trusty rusty sword\n");
             }
             else
             {
@@ -153,7 +153,7 @@
                             }
                             else
                             {
-                            Console.WriteLine("\nThanks you son for helping me");
+                            Console.WriteLine("\nThank you son for helping me");
                             }
                             break;
                         case "Alchemist's garden":
@@ -171,7 +171,7 @@
                         case "Farmhouse":
                             if (quest_2.Cleared == false)
                             {
-                            Console.WriteLine("Goodday son can you help me with my snake problem\n");
+                            Console.WriteLine("Good day son can you help me with my snake problem\n");
                             quest_2.showAvailableQuests(quest_2);
                             Console.WriteLine(player.Location.Compass());
                             }
