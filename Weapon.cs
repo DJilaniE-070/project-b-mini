@@ -7,7 +7,8 @@
     public Weapon(int id, string name , int maxdmg)
     {
         this.ID = id;
-        this.MaxDMG = maxdmg;
         this.Name = name;
+        this.MaxDMG = maxdmg;
     }
+
 }

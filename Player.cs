@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-class Player
+public class Player
 {
     public int CurrentHitPoints = 15;
 
@@ -8,7 +8,7 @@ class Player
     
     public Location Location;
 
-    public Weapon CurrentWeapon;
+    public Weapon CurrentWeapon = World.WeaponByID(1);
 
     public int MaximumHitPoints = 15; 
 
@@ -49,5 +49,4 @@ class Player
         this.CurrentHitPoints = MaximumHitPoints;
     }
 
-    //if quest bool is true then resethp
 }
