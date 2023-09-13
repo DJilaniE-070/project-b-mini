@@ -84,7 +84,7 @@
         Program program = new Program();
         Player player = new Player(World.Locations[0]);
         //hier moet de intro van game story home
-Console.WriteLine("          _______  _______  _______ ");
+        Console.WriteLine("          _______  _______  _______ ");
         Console.WriteLine("|\\     /|(  ____ )(  ____ )(  ___  )");
         Console.WriteLine("| )   ( || (    \\/| (    )|| (   ) |");
         Console.WriteLine("| (___) || (__    | (____)|| |   | |");
